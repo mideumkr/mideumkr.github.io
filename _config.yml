@@ -1,0 +1,6 @@
+title: "mideumkr 쇼핑 리뷰"
+description: "AI가 분석한 가성비 최고의 제품을 소개합니다."
+baseurl: ""
+url: "https://mideumkr.github.io"
+permalink: /:year/:month/:day/:title/
+future: true

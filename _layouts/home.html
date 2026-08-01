@@ -1,0 +1,24 @@
+---
+layout: default
+---
+<div class="text-center mb-16">
+    <h1 class="text-4xl font-extrabold text-gray-900 mb-4 tracking-tight">당신을 위한 맞춤형 가성비 추천</h1>
+    <p class="text-lg text-gray-500">AI가 꼼꼼하게 비교하고 선별한 최고의 제품 리뷰를 확인하세요.</p>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    {% for post in site.posts %}
+    <a href="{{ post.url | relative_url }}" class="group block bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 transform hover:-translate-y-1">
+        {% if post.image %}
+        <div class="aspect-w-16 aspect-h-9 w-full overflow-hidden bg-gray-100">
+            <img src="{{ post.image }}" alt="{{ post.title }}" class="w-full h-48 object-cover object-center group-hover:scale-105 transition-transform duration-500">
+        </div>
+        {% endif %}
+        <div class="p-6">
+            <h2 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-indigo-600 transition-colors line-clamp-2">{{ post.title }}</h2>
+            <p class="text-gray-500 text-sm mb-4 line-clamp-3">{{ post.description | default: post.excerpt | strip_html | truncatewords: 20 }}</p>
+            <div class="text-xs font-semibold text-indigo-500">{{ post.date | date: "%Y년 %m월 %d일" }}</div>
+        </div>
+    </a>
+    {% endfor %}
+</div>
